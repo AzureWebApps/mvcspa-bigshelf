@@ -1,10 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory),Upshot.settings.targets))\Upshot.settings.targets" />
-  <PropertyGroup Label="NuGet Restore Properties">
+  <!--PropertyGroup Label="NuGet Restore Properties">
     <SolutionDir>$(Upshot_Root)</SolutionDir>
     <RestorePackages>true</RestorePackages>
-  </PropertyGroup>
+  </PropertyGroup-->
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -41,14 +40,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework">
-      <HintPath>$(Upshot_Packages)\EntityFramework.4.1.10715.0\lib\EntityFramework.dll</HintPath>
+      <HintPath>.\packages\EntityFramework.4.1.10715.0\lib\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.ServiceModel.DomainServices.EntityFramework">
-      <HintPath>$(Upshot_Packages)\RIAServices.EntityFramework.4.1.60730.0\lib\Net40\Microsoft.ServiceModel.DomainServices.EntityFramework.dll</HintPath>
+      <HintPath>.\packages\RIAServices.EntityFramework.4.1.60730.0\lib\Net40\Microsoft.ServiceModel.DomainServices.EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ServiceModel.DomainServices.Hosting">
-      <HintPath>$(Upshot_Packages)\RIAServices.Endpoints.4.1.60730.0\lib\Net40\Microsoft.ServiceModel.DomainServices.Hosting.dll</HintPath>
+      <HintPath>.\packages\RIAServices.Endpoints.4.1.60730.0\lib\Net40\Microsoft.ServiceModel.DomainServices.Hosting.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -161,12 +160,12 @@
     <Content Include="Account\Web.config" />
     <Content Include="Site.Master" />
   </ItemGroup>
-  <ItemGroup>
+  <!--ItemGroup>
     <ProjectReference Include="$(Upshot_Source)\Upshot\Upshot.csproj">
       <Project>{1ACEF677-B6A0-4680-A076-7893DE176D6B}</Project>
       <Name>Upshot</Name>
     </ProjectReference>
-  </ItemGroup>
+  </ItemGroup-->
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
@@ -193,13 +192,13 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <PropertyGroup>
+  <!--PropertyGroup>
     <PreBuildEvent>
       xcopy /s /Y "$(Upshot_OutputRoot)\*.js" "$(ProjectDir)Scripts\UpshotScripts\"
       xcopy /D /Y "$(Upshot_Shared)\*" "$(ProjectDir)Scripts\SharedScripts\"
     </PreBuildEvent>
-  </PropertyGroup>
-  <Import Project="$(Upshot_Tools)\NuGet\NuGet.targets" />
+  </PropertyGroup-->
+  <!--Import Project="$(Upshot_Tools)\NuGet\NuGet.targets" /-->
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
