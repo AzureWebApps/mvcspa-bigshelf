@@ -9,8 +9,6 @@ namespace BigShelf.Models
 {
     public partial class BigShelfEntities : DbContext
     {
-        private static string testConnectionString = @"data source=.;Integrated Security=SSPI;database=BigShelfEntities_{0}";
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -22,7 +20,7 @@ namespace BigShelf.Models
         }
 
         public BigShelfEntities()
-            : base(connection)
+            : base("name=BigShelfEntities")
         {
             if (HttpContext.Current == null)
             {
@@ -31,44 +29,6 @@ namespace BigShelf.Models
             else
             {
                 Database.SetInitializer<BigShelfEntities>(new BigShelfContextInitializer());
-            }
-        }
-
-        public static string connection
-        {
-            get
-            {
-                //string dbiStr = GetDbiValue();
-                //if (dbiStr != null)
-                //{
-                //    return string.Format(testConnectionString, dbiStr);
-                //}
-                //else
-                {
-                    return "name=BigShelfEntities";
-                }
-            }
-        }
-
-        public static string GetDbiValue()
-        {
-            if (HttpContext.Current != null && HttpContext.Current.Request.Url.Host.ToLowerInvariant() != "localhost")
-            {
-                HttpCookie dbi = HttpContext.Current.Request.Cookies.Get("dbi");
-                if (dbi == null)
-                {
-                    string dbiValue = Guid.NewGuid().ToString("N");
-                    HttpContext.Current.Response.Cookies.Add(new HttpCookie("dbi", dbiValue));
-                    return dbiValue;
-                }
-                else
-                {
-                    return dbi.Value;
-                }
-            }
-            else
-            {
-                return null;
             }
         }
 
