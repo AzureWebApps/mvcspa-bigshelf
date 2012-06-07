@@ -1,0 +1,4 @@
+
+#database files
+*.mdf
+*.ldf
