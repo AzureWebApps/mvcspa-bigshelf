@@ -38,12 +38,12 @@ namespace BigShelf.Models
         {
             get
             {
-                string dbiStr = GetDbiValue();
-                if (dbiStr != null)
-                {
-                    return string.Format(testConnectionString, dbiStr);
-                }
-                else
+                //string dbiStr = GetDbiValue();
+                //if (dbiStr != null)
+                //{
+                //    return string.Format(testConnectionString, dbiStr);
+                //}
+                //else
                 {
                     return "name=BigShelfEntities";
                 }
