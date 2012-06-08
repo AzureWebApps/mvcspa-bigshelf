@@ -72,9 +72,6 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Web.Providers">
-      <HintPath>packages\Microsoft.AspNet.Providers.Core.1.0\lib\net40\System.Web.Providers.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
